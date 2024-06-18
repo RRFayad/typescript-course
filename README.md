@@ -37,3 +37,18 @@
 - Rich Config Options
 
 - Tooling fot IDEs (even in non-TS projects)
+
+#### 6. Course Outline
+
+- TS Basics;
+- TS Compiler and Config;
+- Next-gen JS;
+- Classes & Interfaces;
+- Advanced Types & Features;
+- Generics;
+- Decorators;
+- Full TS Project;
+- Namespaces & Modules;
+- Webpack & TS;
+- 3rd-Party libs and TS;
+- React + TS & Node + TS
