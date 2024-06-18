@@ -11,7 +11,7 @@
 - Why TS?
   - Its a tool that help developer to write better code, identifing error during the development process;
 
-#### Installing and Using TS
+#### 4. Installing and Using TS
 
 - Our problem (with JS):
 
@@ -21,3 +21,19 @@
   - npm install -g typescript
   - tsc filename (in the terminal)
   - It will compile to a regular JS file
+
+#### 5. TS Advantages
+
+- Types!
+
+  - Better auto completion and built in error
+
+- next-gen JS Features (will be compiled for older Browsers)
+
+- Non-JS features, such as Interfaces and Generics
+
+- Meta-Programming Features like Decorators
+
+- Rich Config Options
+
+- Tooling fot IDEs (even in non-TS projects)
