@@ -18,9 +18,12 @@
   - We add 2 inputs to make a sum, and if I add 10 to 5, the result is 105 (as the values are strings);
 
 - Using TS:
+
   - npm install -g typescript
   - tsc filename (in the terminal)
   - It will compile to a regular JS file
+
+  * npm install lite-server helps us to update TS in the runtime and add "start": "lite-server" in the package.JSON
 
 #### 5. TS Advantages
 
@@ -52,3 +55,8 @@
 - Webpack & TS;
 - 3rd-Party libs and TS;
 - React + TS & Node + TS
+
+## Section 02 - TS Basics and Types
+
+- Core TYpes (also suppoted for JS)
+  - number, string, boolean
