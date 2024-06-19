@@ -58,6 +58,8 @@
 
 ## Section 02 - TS Basics and Types
 
+#### Basic Types
+
 - Core Types (also suppoted for JS)
 
   - number, string, boolean (always lowercase)
@@ -69,6 +71,21 @@
 - Type Inferance: The concept that TS 'recognizes' the typw we give to a variable / constant
 
 - We can also explicitly define the type (in this case not a good practice as TS can define by the inference):
+
   ```
   let number1: number = 5;
   ```
+
+  #### 17. Object Types
+
+  - We have the object generic type, and the specific Object Type (which have key: type pairs)
+
+    ```
+    const person: {
+    name: string;
+    age: number;
+    } = {
+    name: "Renan",
+    age: 34,
+    };
+    ```
