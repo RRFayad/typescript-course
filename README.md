@@ -58,5 +58,17 @@
 
 ## Section 02 - TS Basics and Types
 
-- Core TYpes (also suppoted for JS)
-  - number, string, boolean
+- Core Types (also suppoted for JS)
+
+  - number, string, boolean (always lowercase)
+
+- TS is Statically types, which means we can not change the type of a variable during the development
+
+#### 16. Type Assignment & Type Inference
+
+- Type Inferance: The concept that TS 'recognizes' the typw we give to a variable / constant
+
+- We can also explicitly define the type (in this case not a good practice as TS can define by the inference):
+  ```
+  let number1: number = 5;
+  ```
