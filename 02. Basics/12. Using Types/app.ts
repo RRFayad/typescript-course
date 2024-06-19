@@ -6,10 +6,16 @@
 //   age: 34,
 // };
 
-const person = {
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // tuple
+} = {
   name: "Renan",
   age: 34,
   hobbies: ["Code", "Workout"],
+  role: [2, "author"],
 };
 
 // let favoriteActivities: any[]; // avoid the any type

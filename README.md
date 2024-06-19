@@ -80,16 +80,34 @@
 
   - We have the object generic type, and the specific Object Type (which have key: type pairs)
 
-    ```
-    const person: {
-    name: string;
-    age: number;
-    } = {
-    name: "Renan",
-    age: 34,
-    };
-    ```
+        ```
+        const person: {
+        name: string;
+        age: number;
+        } = {
+        name: "Renan",
+        age: 34,
+        };
+        ```
 
-    #### 18. Array Types
+#### 18. Array Types
 
-    - string[]
+- string[]
+
+#### 20. Tuples
+
+- Tuples keeps the lenght (bt it lets some modifying the opriginal array with methods such as push)
+
+```
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // tuple
+} = {
+  name: "Renan",
+  age: 34,
+  hobbies: ["Code", "Workout"],
+  role: [2, "author"],
+};
+```
