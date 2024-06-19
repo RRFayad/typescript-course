@@ -89,3 +89,7 @@
     age: 34,
     };
     ```
+
+    #### 18. Array Types
+
+    - string[]
