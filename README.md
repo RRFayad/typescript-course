@@ -141,3 +141,11 @@ const person: {
   }
 };
 ```
+
+#### 24. Literal Types
+
+- Define the literal types(values) accepted
+
+```
+  const combine = (input1: number | string, input2: number | string, resultType: "as-number" | "as-text") => {}
+```
