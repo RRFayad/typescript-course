@@ -123,3 +123,21 @@ const person: {
     AUTHOR,
   }
 ```
+
+#### 22. Any Type
+
+- Its like moving back to JS, we can store anything is there, and we should avoid it
+
+#### 23. Union Types
+
+- If I combine types, I may have to create a logic for each type
+
+```
+  const combine = (input1: number | string, input2: number | string) => {
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    return input1 + input2;
+  } else {
+    return input1.toString() + input2.toString();
+  }
+};
+```
