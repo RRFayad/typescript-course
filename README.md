@@ -111,3 +111,15 @@ const person: {
   role: [2, "author"],
 };
 ```
+
+#### 21. Working with Enums
+
+- We can construct a enumerating map type (in the below case)
+
+```
+  enum Role {
+    ADMIN, // If I asign ADMIN = 5, the next values will have started from 5 (6, 7 and so on)
+    READ_ONLY,
+    AUTHOR,
+  }
+```
