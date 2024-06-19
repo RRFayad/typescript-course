@@ -144,8 +144,17 @@ const person: {
 
 #### 24. Literal Types
 
-- Define the literal types(values) accepted
+- Define the literal types(values) accepted (in our case literal types + union types)
 
 ```
   const combine = (input1: number | string, input2: number | string, resultType: "as-number" | "as-text") => {}
 ```
+
+#### 25. Type Aliases / Custom Types
+
+- Type aliases or Custom type is like creating my own variables for types
+
+  ```
+    type Combinable = number | string;
+    type ConversionDescriptor = "as-number" | "as-text";
+  ```
