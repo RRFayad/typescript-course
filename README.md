@@ -158,3 +158,15 @@ const person: {
     type Combinable = number | string;
     type ConversionDescriptor = "as-number" | "as-text";
   ```
+
+#### 27. Function Return Types & "void"
+
+```
+function add(n1: number, n2: number): number {
+  return n1 + n2;
+}
+
+function add2(n1: number, n2: number): void {
+  console.log(n1 + n2);
+}
+```
