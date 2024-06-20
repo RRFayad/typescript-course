@@ -212,3 +212,60 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
     throw { message, errorCode: code };
   }
   ```
+
+## Section 03 - TS Compiler
+
+#### 34. Intro
+
+- We want to introduce a way of not compiling manually each ts file at a time
+
+#### 35. Using "Watch Mode" & 36. Compiling the Entire Project / Multiple Files
+
+- tsc --init // Initialize a ts project
+- tsc --w // Watch mode for the whole project
+
+- Watch mode for a single file (automatically updates)
+
+  - tsc app.ts --w
+
+#### Gerenal compile configs
+
+- Some obs during this module:
+
+  - When a variable value can potentially be null (such as a button from HTML code), TS will declare an error, for that we can do one of:
+    1. set an ! in the variable declaration, such as `const button = document.querySelector(#button-id)!`
+    2. create an if else logic to check if it's a truthy value, then...
+
+- In tsconfig.json there are some useful project set up options, such as:
+
+  ```
+  "exclude": ["node_modules"], // this is default, is to show the exclude files from compiling exust;
+  "include": ["app.ts", "other-path-here"] // We don't use this, as we have to manually set it up
+  "files":[" define-file-here.ts "]
+  ```
+
+- "target": "ES2022"
+  - Define the right JS version (more modern, clearer the code)
+- "lib":[],
+  - Some default libraries (such as DOM API modern JS APIs etc)
+- "sourceMap": true
+  - Interesting, and it let us see in the browser our original TS code file
+- "outDir":
+  - Define where the compiled files should be created
+- "rootDir":
+  - Define the source folder
+- "downlevelIteration"
+  - If someday a loop funcionality runs different from expected maybe should look at
+- "noEmitOnError":
+
+  - Stop Emitting Files on Compilation Errors
+
+- Strict Compilation:
+
+  - "noImplicityAny":
+    - Its about our declarations of types
+  - "strictNullChecks"
+    - About values that might bne null (such as a button from html - TS can't recognize that)
+
+- Code Quality Options:
+  - not used vars etc
