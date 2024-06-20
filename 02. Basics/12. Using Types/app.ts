@@ -14,3 +14,9 @@ unknownUserInput = 3;
 if (typeof unknownUserInput === "string") {
   userName = unknownUserInput;
 }
+
+function generateError(message: string, code: number): never {
+  throw { message, errorCode: code };
+}
+
+generateError("An error occurred!", 500);

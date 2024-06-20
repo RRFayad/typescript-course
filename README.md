@@ -203,4 +203,12 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
   }
   ```
 
-- asd
+#### 31. The "never" Type
+
+- It's a bit more precise than void, commonly used for error fuctions - This NEVER returns anyhing
+
+  ```
+  function generateError(message: string, code: number): never {
+    throw { message, errorCode: code };
+  }
+  ```
