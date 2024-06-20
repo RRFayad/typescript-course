@@ -171,6 +171,8 @@ function add2(n1: number, n2: number): void {
 
 #### 29. Function Types and Callbacks
 
+- If I declare the callback returns void, but in the end it returns something, it will compile anyway, but, the return should not be used
+
 ```
 function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    // the 'void' declares that we will not use any possible return
   const result = n1 + n2;
