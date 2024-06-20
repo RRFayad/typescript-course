@@ -28,17 +28,11 @@
 #### 5. TS Advantages
 
 - Types!
-
   - Better auto completion and built in error
-
 - next-gen JS Features (will be compiled for older Browsers)
-
 - Non-JS features, such as Interfaces and Generics
-
 - Meta-Programming Features like Decorators
-
 - Rich Config Options
-
 - Tooling fot IDEs (even in non-TS projects)
 
 #### 6. Course Outline
@@ -171,4 +165,15 @@ function add2(n1: number, n2: number): void {
 }
 ```
 
+#### 28. Functions as Types
+
 `let combineValues: (a: number, b: number) => number;`
+
+#### 29. Function Types and Callbacks
+
+```
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    // the 'void' declares that we will not use any possible return
+  const result = n1 + n2;
+  cb(result);
+}
+```
