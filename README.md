@@ -179,3 +179,28 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
   cb(result);
 }
 ```
+
+#### 30. The "unknown" Type
+
+- unknown type is more restrictive than any type, as it enforces checking, e.g.:
+
+  ```
+  let userName: string;
+  let anyUserInput: any;
+  let unknownUserInput: unknown;
+
+  anyUserInput = "aaaa";
+  anyUserInput = 2;
+  userName = anyUserInput;      // The type is any, but there's no error
+
+  unknownUserInput = "Ihaa";
+  unknownUserInput = 3;
+
+  userName = unknownUserInput; // RETURNS ERROR, as we expect a string and the type is unknown
+
+  if (typeof unknownUserInput === "string") {
+  userName = unknownUserInput;
+  }
+  ```
+
+- asd
