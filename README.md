@@ -345,3 +345,16 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
     // ...methods here...
   }
   ```
+
+#### 65. 'readonly' Properties
+
+- Guarantees a property's value can not be changed
+
+```
+class Department {
+
+  constructor(private readonly id:string, public name: string) {}
+
+  // ...methods here...
+}
+```

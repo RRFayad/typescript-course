@@ -26,7 +26,7 @@ class Department {
   private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
 
   constructor(
-    private id: string,
+    private readonly id: string,
     public name: string
   ) {}
 
