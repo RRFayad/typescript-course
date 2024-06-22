@@ -316,3 +316,32 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
   ```
 
   - In this case we can do `accounting.employees[2] = "Anna" `, only use the addEmployee()
+
+#### 64. Shorthand Initialization
+
+- Instead of:
+
+  ```
+  class Department {
+    private id: string;
+    name: string;
+
+    constructor(id:string, name: string) {
+      this.id = id;
+      this.name = name;
+    }
+
+    // ...methods here...
+  }
+  ```
+
+- We can use:
+
+  ```
+  class Department {
+
+    constructor(private id:string, public name: string) {}
+
+    // ...methods here...
+  }
+  ```
