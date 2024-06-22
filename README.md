@@ -221,11 +221,12 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
 
 #### 35. Using "Watch Mode" & 36. Compiling the Entire Project / Multiple Files
 
-- tsc --init // Initialize a ts project
-- tsc --w // Watch mode for the whole project
+- Create TS project and Watch mode(automatically updates)
 
-- Watch mode for a single file (automatically updates)
+  - tsc --init // Initialize a ts project
+  - tsc -w // Watch mode for the whole project
 
+- Optional - Watch mode for a single file (automatically updates)
   - tsc app.ts --w
 
 #### Gerenal compile configs
@@ -269,3 +270,18 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
 
 - Code Quality Options:
   - not used vars etc
+
+## Section 04 - Next-gen JS & TS
+
+- Rest Params
+
+  `function(...numbers: number[]) {}`
+
+- Default function param
+  `function (a: number = 1, b: number){}`
+
+## Section 05 - Classes & Interfaces
+
+#### 60. Creating a Class & 61. Compiling to JavaScript
+
+- May be useful to know that when cinfinguring the TSConfig for modern JS (es6), the compiled JS will be a class, and before, will be a constructor function
