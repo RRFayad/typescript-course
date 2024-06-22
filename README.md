@@ -358,3 +358,18 @@ class Department {
   // ...methods here...
 }
 ```
+
+#### 66. Inheritance
+
+- A review about inheritance, nothing different in TS perspective
+
+```
+class ITDepartment extends Department {
+  admins: string[];
+
+  constructor(id: string, admins: string[]) {
+    super(id, "IT");
+    this.admins = admins;
+  }
+}
+```
