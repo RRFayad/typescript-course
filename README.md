@@ -291,3 +291,28 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
 
 - remember that 'this' can be remember as the 'responsable' for calling the method
   - So we can add a type check to guarantee a specific method will only be called by
+
+#### 63. "private" and "public" Access Modifiers
+
+- With a Class, every property or method can be categorized as:
+
+  - Public - the dafault: Properties and method can be accesed from outside (instance.property)
+  - Private: Properties can not be accessed from outside (so only other methods of e instance will manipulate that data)
+
+  ```
+  class Department {
+    name: string; // As default, here name is public
+    private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
+
+    constructor(name: string) {
+      this.name = name;
+    }
+
+    addEmployee(employee: string) {
+      this.employees.push(employee);
+    }
+
+  }
+  ```
+
+  - In this case we can do `accounting.employees[2] = "Anna" `, only use the addEmployee()
