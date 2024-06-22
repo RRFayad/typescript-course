@@ -284,4 +284,10 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
 
 #### 60. Creating a Class & 61. Compiling to JavaScript
 
-- May be useful to know that when cinfinguring the TSConfig for modern JS (es6), the compiled JS will be a class, and before, will be a constructor function
+- Remember that Instance is an Object derived form a Class
+- May be useful to know that when confinguring the TSConfig for modern JS (es6), the compiled JS will be a class, and before, will be a constructor function
+
+#### 62. Constructor Functions & The "this" Keyword
+
+- remember that 'this' can be remember as the 'responsable' for calling the method
+  - So we can add a type check to guarantee a specific method will only be called by
