@@ -373,3 +373,7 @@ class ITDepartment extends Department {
   }
 }
 ```
+
+#### 67. Overriding Properties & The "protected" Modifier
+
+- Basically, protected is the same as private, but private does not let our inheritances to access the properties, while protected allows that
