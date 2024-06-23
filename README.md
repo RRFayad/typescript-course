@@ -395,3 +395,17 @@ class ITDepartment extends Department {
   console.log(accounting.mostRecentReport);   // Note we don't use () to run
   accounting.mostRecentReport = "Any string here"   // Note we don't use () to run again
 ```
+
+#### 69. Static Methods & Properties
+
+- A static property is a property that is shared across all instances of a class, and can be accessed without creating an instance of the class.
+
+```
+class Department {
+    static createEmployee(name: string) {
+    return { name };
+  }
+}
+
+console.log(Department.createEmployee("Renan"));    // Output: {name: 'Renan'}
+```

@@ -36,7 +36,11 @@ class Department {
         console.log(this.employees.length);
         console.log(this.employees);
     }
+    static createEmployee(name) {
+        return { name };
+    }
 }
+console.log(Department.createEmployee("Renan"));
 class ITDepartment extends Department {
     constructor(id, admins) {
         super(id, "IT");
