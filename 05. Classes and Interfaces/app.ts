@@ -23,7 +23,8 @@
 
 // Short hand initializatoin (without repeating the type and constructor declaration)
 class Department {
-  private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
+  // private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
+  protected employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
 
   constructor(
     private readonly id: string,
@@ -55,19 +56,29 @@ class ITDepartment extends Department {
 }
 
 class AccountingDepartment extends Department {
-  constructor(
-    id: string,
-    private reports: string[]
-  ) {
+  private lastReport: string;
+
+  //prettier-ignore
+  constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
+    this.lastReport = reports[0];
   }
 
   addReport(text: string) {
     this.reports.push(text);
+    this.lastReport = text;
   }
 
   printReports() {
     console.log(this.reports);
+  }
+
+  get mostRecentReport() {
+    return this.lastReport;
+  }
+
+  set mostRecentReport(value: string) {
+    this.addReport(value);
   }
 }
 
@@ -81,7 +92,9 @@ console.log(it);
 
 const accounting = new AccountingDepartment("d2", []);
 
-accounting.addReport("Something went wrong");
-accounting.printReports();
+accounting.addReport("Something went wrongaa");
+console.log(accounting.mostRecentReport);
+accounting.mostRecentReport = "This is the latest report after the wrongaa";
+console.log(accounting.mostRecentReport);
 
 //const accountingCopy = { name: "DUMMY", describe: it.describe }; // If this object has all propeties and methods and Department, will not show error

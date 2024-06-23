@@ -377,3 +377,21 @@ class ITDepartment extends Department {
 #### 67. Overriding Properties & The "protected" Modifier
 
 - Basically, protected is the same as private, but private does not let our inheritances to access the properties, while protected allows that
+
+#### 68. Getters & Setters
+
+- When we select a property as private or protected, TS will return us error when we try to access it.
+- So, we can definer getters and setters:
+
+```
+  get mostRecentReport() {
+    return this.lastReport;
+  }
+
+  set mostRecentReport(value: string) {
+    this.addReport(value);
+  }
+
+  console.log(accounting.mostRecentReport);   // Note we don't use () to run
+  accounting.mostRecentReport = "Any string here"   // Note we don't use () to run again
+```

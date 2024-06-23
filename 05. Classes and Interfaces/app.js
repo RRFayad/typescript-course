@@ -22,6 +22,7 @@ class Department {
     constructor(id, name) {
         this.id = id;
         this.name = name;
+        // private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
         this.employees = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
     }
     // We get this param anyways, but like this is a one more type check, that will guarantee this method will only be called by a instance of this class
@@ -43,15 +44,24 @@ class ITDepartment extends Department {
     }
 }
 class AccountingDepartment extends Department {
+    //prettier-ignore
     constructor(id, reports) {
         super(id, "Accounting");
         this.reports = reports;
+        this.lastReport = reports[0];
     }
     addReport(text) {
         this.reports.push(text);
+        this.lastReport = text;
     }
     printReports() {
         console.log(this.reports);
+    }
+    get mostRecentReport() {
+        return this.lastReport;
+    }
+    set mostRecentReport(value) {
+        this.addReport(value);
     }
 }
 const it = new ITDepartment("d1", ["Fayad"]);
@@ -60,6 +70,8 @@ it.addEmployee("Renan");
 it.addEmployee("Fayad");
 console.log(it);
 const accounting = new AccountingDepartment("d2", []);
-accounting.addReport("Something went wrong");
-accounting.printReports();
+accounting.addReport("Something went wrongaa");
+console.log(accounting.mostRecentReport);
+accounting.mostRecentReport = "This is the latest report after the wrongaa";
+console.log(accounting.mostRecentReport);
 //const accountingCopy = { name: "DUMMY", describe: it.describe }; // If this object has all propeties and methods and Department, will not show error
