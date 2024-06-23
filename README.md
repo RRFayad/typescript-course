@@ -409,3 +409,22 @@ class Department {
 
 console.log(Department.createEmployee("Renan"));    // Output: {name: 'Renan'}
 ```
+
+#### 70. Abstract Classes
+
+- When I want to 'force' the developer to create a specific method in all instances of my class:
+
+```
+abstract class Department {
+  // ... all the class logic here
+    abstract describe(this: Department): void;    // There's no implementation here
+}
+
+class AccountingDepartment extends Department {
+    //... all the object logic before
+
+    describe() {      // If there is no describe() it will return an error
+    console.log(`Accounting Department ID:  ${this.id}`);
+    }
+}
+```

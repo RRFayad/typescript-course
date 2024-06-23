@@ -22,19 +22,17 @@
 // }
 
 // Short hand initializatoin (without repeating the type and constructor declaration)
-class Department {
+abstract class Department {
   // private employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
   protected employees: string[] = []; // Now, with private, employees can't be acessed from outside (only with instance methods)
 
   constructor(
-    private readonly id: string,
+    protected readonly id: string,
     public name: string
   ) {}
 
   // We get this param anyways, but like this is a one more type check, that will guarantee this method will only be called by a instance of this class
-  describe(this: Department) {
-    console.log(`Department:\nID - ${this.id}\nName - ${this.name}`);
-  }
+  abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -59,6 +57,10 @@ class ITDepartment extends Department {
     super(id, "IT");
     this.admins = admins;
   }
+
+  describe(this: Department): void {
+    console.log(this.name);
+  }
 }
 
 class AccountingDepartment extends Department {
@@ -77,6 +79,10 @@ class AccountingDepartment extends Department {
 
   printReports() {
     console.log(this.reports);
+  }
+
+  describe() {
+    console.log(`Accounting Department ID:  ${this.id}`);
   }
 
   get mostRecentReport() {
@@ -103,4 +109,5 @@ console.log(accounting.mostRecentReport);
 accounting.mostRecentReport = "This is the latest report after the wrongaa";
 console.log(accounting.mostRecentReport);
 
+accounting.describe();
 //const accountingCopy = { name: "DUMMY", describe: it.describe }; // If this object has all propeties and methods and Department, will not show error
