@@ -636,3 +636,47 @@ class Person implements Greetable {
 #### 80. Compiling Interfaces to JavaScript
 
 - There's nothing in JS, it's all about TS
+
+## Section 06 - Advanced Types
+
+#### Intro
+
+- Intersection Types
+- Type Guards
+- Discriminated Unions
+- Type Casting
+- Funtion Overloads
+
+#### 84. Intersection Types
+
+- In objects will combine, so the same result as using interfaces and combined extends
+
+```
+// Same result as the commented interface structure
+type Admin = {
+  name: string;
+  privileges: string[];
+};
+
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+type ElevatedEmployee = Admin & Employee;
+
+const employee1: ElevatedEmployee = {
+  name: "Max",
+  privileges: ["create-server"],
+  startDate: new Date(),
+};
+```
+
+- Here will get the intersection
+
+```
+type Combinable = string | number;
+type Numeric = number | boolean;
+
+type Intersection = Combinable & Numeric;
+```
