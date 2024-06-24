@@ -632,3 +632,7 @@ class Person implements Greetable {
   }
 }
 ```
+
+#### 80. Compiling Interfaces to JavaScript
+
+- There's nothing in JS, it's all about TS
