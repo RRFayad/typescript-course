@@ -591,3 +591,21 @@ interface Greetable extends Named {
 ```
 
 #### 78. Interfaces as Function Types
+
+- Using the custom type is more common, but jsut to be aware of ()it's like creating an object interface with an annonymous function:
+
+```
+// Our Regular Function Type
+type AddFnType = (a: number, b: number) => number;
+let add1: AddFnType;
+
+add1 = (n1: number, n2: number) => n1 + n2;
+
+// Implementing Interfaces
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add2: AddFn;
+add2 = (n1: number, n2: number) => n1 + n2;
+```
