@@ -428,3 +428,27 @@ class AccountingDepartment extends Department {
     }
 }
 ```
+
+#### 71. Private Constructors & Singletons
+
+- Singleton is a pattern to ensure we will have exactly one instance of a class
+
+- So, its about making the construtor private, and creating a method that checks if there's already an instance, to return it, if not, to create a new one
+
+```
+class AccountingDepartment extends Department {
+  private static instance: AccountingDepartment;
+
+   private constructor(id: string) {
+    super(id, "Accounting");
+   }
+
+  static getInstance() {
+    if (AccountingDepartment.instance) {
+        return this.instance;
+    }
+    this.instance = new AccountingDepartment("d2", []);
+    return this.instance;
+  }
+}
+```
