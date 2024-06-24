@@ -1,6 +1,8 @@
-interface Greetable {
-  name: string;
+interface Named {
+  readonly name: string; // Reinforce that the name will not be changed, only initiated
+}
 
+interface Greetable extends Named {
   greet(phrase: string): void;
 }
 

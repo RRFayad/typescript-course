@@ -563,3 +563,31 @@ class Dog extends Animal {
 
 - **Interfaces:** Define what properties and methods an object should have, without any implementation. They are ideal for defining contracts and achieving polymorphism.
 - **Abstract Classes:** Define both the structure and some behavior. They can provide a common base with shared functionality while forcing subclasses to implement specific methods.
+
+#### 75. Why Interfaces?
+
+- To force some classes to have some structure
+
+#### 76. Readonly Interface Properties
+
+```
+interface Greetable {
+  readonly name: string; // Reinforce that the name will not be changed, only initiated
+
+  greet(phrase: string): void;
+}
+```
+
+#### 77. Extending Interfaces
+
+```
+interface Named {
+  readonly name: string; // Reinforce that the name will not be changed, only initiated
+}
+
+interface Greetable extends Named {
+  greet(phrase: string): void;
+}
+```
+
+#### 78. Interfaces as Function Types
