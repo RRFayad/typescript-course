@@ -282,6 +282,8 @@ function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {    //
 
 ## Section 05 - Classes & Interfaces
 
+### Classes
+
 #### 60. Creating a Class & 61. Compiling to JavaScript
 
 - Remember that Instance is an Object derived form a Class
@@ -412,7 +414,10 @@ console.log(Department.createEmployee("Renan"));    // Output: {name: 'Renan'}
 
 #### 70. Abstract Classes
 
-- When I want to 'force' the developer to create a specific method in all instances of my class:
+- A Class that can not be instantiated, but has to be extended
+
+- So we can define abstract methods or properties
+  - When I want to 'force' the developer to create a specific method or property in all instances of my class:
 
 ```
 abstract class Department {
@@ -452,3 +457,109 @@ class AccountingDepartment extends Department {
   }
 }
 ```
+
+### Interfaces
+
+#### 73. A First Interface
+
+- An interface describes the structute of an object
+
+```
+interface Person {
+  name: string;
+  age: number;
+
+  greet(phrase: string): void;
+}
+
+let user1: Person;
+
+user1 = {
+  name: "Max",
+  age: 30,
+  greet(phrase) {
+    console.log(phrase);
+  },
+};
+```
+
+#### 74. Using Interfaces with Classes
+
+- Why interface instead of a custom type?
+
+  - Interfaces can only be used for the structure of an object
+  - Interfaces can be used in classes
+
+- So the main difference between Interfaces and Abstract Classes is that Interfaces only defines the minimum structure of an object, without implementation (while an abstract class will have the implementation of a method or a property for example)
+
+##### Interfaces
+
+- **Structure Definition**: Interfaces in TypeScript define the shape of an object. They are used to specify the structure that an object must adhere to but do not provide any implementation.
+- **No Implementation**: Interfaces cannot contain any implementation details such as method bodies or property initializations.
+- **Multiple Inheritance**: A class can implement multiple interfaces, allowing for a form of multiple inheritance.
+- **Duck Typing**: TypeScript uses structural typing, meaning an object can implement an interface implicitly if it matches the required structure.
+
+##### Abstract Classes
+
+- **Partial Implementation**: Abstract classes can provide some implementation details. They can contain fully implemented methods, properties, and constructor logic.
+- **Abstract Methods**: Abstract classes can also have abstract methods, which are declared without an implementation. Subclasses must provide the implementation for these abstract methods.
+- **Single Inheritance**: A class can extend only one abstract class (or any other class), adhering to the single inheritance model.
+- **Instantiation**: Abstract classes cannot be instantiated directly. They are meant to be extended by other classes.
+
+##### Detailed Comparison
+
+###### Interfaces
+
+- Define a contract that other objects or classes can implement.
+- Cannot contain implementation.
+- Used to achieve loose coupling by defining a set of methods and properties an object should have.
+
+**Example:**
+
+```
+interface Animal {
+  name: string;
+  speak(): void;
+}
+
+class Dog implements Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  speak(): void {
+    console.log(`${this.name} says woof`);
+  }
+}
+```
+
+###### Abstract Classes
+
+- Provide a base class with common functionality and the ability to enforce certain methods to be implemented by subclasses.
+- Can contain both fully implemented methods and abstract methods.
+- Used when you need to share code among several closely related classes while still requiring certain methods to be implemented in the derived classes.
+
+**Example:**
+
+```
+abstract class Animal {
+  constructor(public name: string) {}
+
+  abstract speak(): void; // Must be implemented by subclasses
+
+  move(): void {
+    console.log(`${this.name} is moving`);
+  }
+}
+
+class Dog extends Animal {
+  speak(): void {
+    console.log(`${this.name} says woof`);
+  }
+}
+```
+
+##### Summary
+
+- **Interfaces:** Define what properties and methods an object should have, without any implementation. They are ideal for defining contracts and achieving polymorphism.
+- **Abstract Classes:** Define both the structure and some behavior. They can provide a common base with shared functionality while forcing subclasses to implement specific methods.
