@@ -609,3 +609,26 @@ interface AddFn {
 let add2: AddFn;
 add2 = (n1: number, n2: number) => n1 + n2;
 ```
+
+#### 79. Optional Parameters & Properties
+
+- Add a ? to make optional properties / methods, also in constructor
+
+```
+interface Named {
+  readonly name: string;
+  outputName?: string;
+}
+
+class Person implements Greetable {
+  name?: string;
+
+  constructor(name?: string) {
+    this.name = name;
+  }
+
+  greet(phrase: string): void {
+    console.log(`${phrase}, I'm ${this.name}`);
+  }
+}
+```

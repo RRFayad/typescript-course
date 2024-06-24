@@ -1,7 +1,8 @@
 // Interfaces with Objects and Classes
 
 interface Named {
-  readonly name: string; // Reinforce that the name will not be changed, only initiated
+  readonly name?: string; // Reinforce that the name will not be changed, only initiated
+  outputName?: string;
 }
 
 interface Greetable extends Named {
@@ -10,9 +11,9 @@ interface Greetable extends Named {
 
 // We could also implement more than 1 interface (with a comma)
 class Person implements Greetable {
-  name: string;
+  name?: string;
 
-  constructor(name: string) {
+  constructor(name?: string) {
     this.name = name;
   }
 
