@@ -150,3 +150,16 @@ const userInputElementv3 = document.querySelector("#user-input");
 if (userInputElementv3) {
   (userInputElementv3 as HTMLInputElement).value = "Hi there";
 }
+
+// Index Types
+
+/*
+We want to crete a flexible interface, to be used for different error (that we can't predict yet which they are)
+{email: 'Not a valid email', username: 'Please insert full name'}
+*/
+interface ErrorContainer {
+  id: string; // We can predefine some properties, but keeping the same type of the index
+  [prop: string]: string;
+}
+
+const emailError: ErrorContainer = { id: "0001", email: "Please valid email" };

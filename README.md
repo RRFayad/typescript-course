@@ -825,3 +825,16 @@ if (userInputElementv3) {
   (userInputElementv3 as HTMLInputElement).value = "Hi there";
 }
 ```
+
+#### 88. Index Properties
+
+- Index Types - A feature that allowus us to create more flexible objects regarding the properties they might hold
+
+```
+interface ErrorContainer {
+  id: string; // We can predefine some properties, but keeping the same type of the index
+  [prop: string]: string;
+}
+
+const emailError: ErrorContainer = { id:"0001", email: "Please valid email" };
+```
