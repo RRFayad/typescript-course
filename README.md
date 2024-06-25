@@ -799,3 +799,29 @@ const moveAnimal = (animal: Animal) => {
   console.log(`Moving with speed: ${speed}`);
 };
 ```
+
+#### 87. Type Casting
+
+- Explicitly telling TS a specific type it wouldn't know
+
+- ! is a form to say the value will never return null
+
+```
+//version 1
+const userInputElementv1 = <HTMLInputElement>document.querySelector("#user-input");
+
+userInputElementv1.value = "Hi there";
+
+// versoin 2
+const userInputElementv2 = document.querySelector("#user-input")! as HTMLInputElement;
+
+userInputElementv2.value = "Hi there";
+
+// version 3
+// If we are not sure it will not return null - we must have an if check:
+const userInputElementv3 = document.querySelector("#user-input");
+
+if (userInputElementv3) {
+  (userInputElementv3 as HTMLInputElement).value = "Hi there";
+}
+```
