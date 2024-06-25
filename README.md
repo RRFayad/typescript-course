@@ -768,3 +768,34 @@ function useVehicle(vehicle: Vehicle) {
   }
 }
 ```
+
+#### 86. Discriminated Unions - Easier Type Guards
+
+- Another useful pattern for objects and union types is to declare a type for each object / interface
+
+```
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+const moveAnimal = (animal: Animal) => {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+      break;
+  }
+  console.log(`Moving with speed: ${speed}`);
+};
+```
