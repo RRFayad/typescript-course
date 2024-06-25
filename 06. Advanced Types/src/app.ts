@@ -196,3 +196,14 @@ const emailError: ErrorContainer = { id: "0001", email: "Please valid email" };
 
   console.log(fetchedUserData?.job?.title);
 }
+
+// Nullish Coalescing
+{
+  const userInput = 0; // For this lesson purpose we can consider we don't know for sure if ti's null
+
+  // const storedData = userInput || "DEFAULT"; // Our regular falsy JS check
+
+  const storedData = userInput ?? "DEFAULT"; // Specific for null or undefined
+
+  console.log(storedData);
+}

@@ -878,3 +878,21 @@ const emailError: ErrorContainer = { id:"0001", email: "Please valid email" };
 
   console.log(fetchedUserData?.job?.title);
 ```
+
+#### 91. Nullish Coalescing
+
+- A check to guarantee it's a nullish value (instead of only a falsy value), so the difference will be 0, '', etc
+
+```
+  const userInput = "";
+
+   /* const storedData = userInput || "DEFAULT";    // Our regular falsy JS check */
+
+  const storedData = userInput ?? "DEFAULT"; // Specific for null or undefined
+
+  console.log(storedData);
+```
+
+#### Useful links
+
+[Advanced Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
