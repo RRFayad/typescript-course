@@ -864,3 +864,17 @@ const emailError: ErrorContainer = { id:"0001", email: "Please valid email" };
   result.split(" ");
 }
 ```
+
+#### 90. Optional Chaining
+
+- When neither TS neither us know if the property if going to exist - such as in fetched data:
+
+```
+  const fetchedUserData = {
+    id: "u1",
+    name: "Max",
+    job: { title: "CEO", description: "My own company" },
+  };
+
+  console.log(fetchedUserData?.job?.title);
+```

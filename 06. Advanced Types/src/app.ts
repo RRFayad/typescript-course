@@ -184,3 +184,15 @@ const emailError: ErrorContainer = { id: "0001", email: "Please valid email" };
   const result = add("Renan", "Fayad");
   result.split(" ");
 }
+
+// Optional Chaining
+
+{
+  const fetchedUserData = {
+    id: "u1",
+    name: "Max",
+    job: { title: "CEO", description: "My own company" },
+  };
+
+  console.log(fetchedUserData?.job?.title);
+}
