@@ -914,3 +914,19 @@ const promise: Promise<string> = new Promise((resolve, reject) => {
 
 promise.then((value) => value.split(" "));
 ```
+
+#### Generic Function
+
+- We create 'type variables' in a function to help us with typing
+  - For convention, the 1st type starts with T (of type) and goes on alphabetic order
+
+```
+function merge<T, U>(objA: T, objB: U) {
+  return { ...objA, ...objB };
+}
+
+const mergedObj = merge({ name: "Renan" }, { age: 34 });
+
+console.log(mergedObj);
+
+```
