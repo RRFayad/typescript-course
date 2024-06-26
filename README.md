@@ -90,7 +90,7 @@
 
 #### 20. Tuples
 
-- Tuples keeps the lenght (bt it lets some modifying the opriginal array with methods such as push)
+- Tuples keeps the lenght (but it lets some modifying the original array with methods such as push)
 
 ```
 const person: {
@@ -943,4 +943,25 @@ console.log(mergedObj);
   const mergedObj = merge({ name: "Renan", hobbies: ["sports"] }, { age: 34 });
 
   console.log(mergedObj);
+```
+
+#### Generic Function wth constraint:
+
+```
+  interface Lengthy {
+    length: number;
+  }
+
+  // We set the Lenghty interface constaint
+  // Remember that strings and arrays are objects that have length property
+  const countAndDescribe = <T extends Lengthy>(element: T): [T, string] => {
+    let descriptionText = "Got no value";
+    if (element.length > 0) {
+      descriptionText = `Got ${element.length} elements`;
+    }
+    return [element, descriptionText];
+  };
+
+  console.log(countAndDescribe("Hi there"));
+  console.log(countAndDescribe(["Sports", "Cooking"]));
 ```
