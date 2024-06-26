@@ -945,7 +945,7 @@ console.log(mergedObj);
   console.log(mergedObj);
 ```
 
-#### Generic Function wth constraint:
+#### Generic Function wth constraint
 
 ```
   interface Lengthy {
@@ -964,4 +964,16 @@ console.log(mergedObj);
 
   console.log(countAndDescribe("Hi there"));
   console.log(countAndDescribe(["Sports", "Cooking"]));
+```
+
+#### keyof Constraint
+
+- to check if the value is a valid key of the object:
+
+```
+  const extractAndConvert = <T extends object, U extends keyof T>(obj: T, key: U) => {
+    return `${obj[key]}`;
+  };
+
+  console.log(extractAndConvert({ name: "Renan" }, "name"));
 ```

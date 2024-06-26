@@ -54,3 +54,13 @@
   console.log(countAndDescribe("Hi there"));
   console.log(countAndDescribe(["Sports", "Cooking"]));
 }
+
+// 99. keyof Constraint
+
+{
+  const extractAndConvert = <T extends object, U extends keyof T>(obj: T, key: U) => {
+    return `${obj[key]}`;
+  };
+
+  console.log(extractAndConvert({ name: "Renan" }, "name"));
+}
