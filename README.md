@@ -930,3 +930,17 @@ const mergedObj = merge({ name: "Renan" }, { age: 34 });
 console.log(mergedObj);
 
 ```
+
+#### Constraints
+
+```
+// Now we declare that our generic types must be objects
+  function merge<T extends object, U extends object>(objA: T, objB: U) {
+    return { ...objA, ...objB };
+  }
+
+  // With the constrain, if any value is not an object, will return an error
+  const mergedObj = merge({ name: "Renan", hobbies: ["sports"] }, { age: 34 });
+
+  console.log(mergedObj);
+```
