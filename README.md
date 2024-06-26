@@ -896,3 +896,21 @@ const emailError: ErrorContainer = { id:"0001", email: "Please valid email" };
 #### Useful links
 
 [Advanced Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+
+## Section 07 - Generics
+
+- It's not a JS concept, but it's a concept that exists in other languages
+
+- Generic type have to be 'connected' to another type - It's good practice, as TS identifies the type of each value and gives us the types methods
+
+```
+const names: Array<string> = [];
+
+const promise: Promise<string> = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("This is done");
+  }, 2000);
+});
+
+promise.then((value) => value.split(" "));
+```
