@@ -93,3 +93,28 @@
 
   // Now if we want we can create a NumberStorage as well
 }
+
+// 102. Generic Utility Types
+
+{
+  // Partial
+  interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+  }
+
+  const createCouseGoal = (title: string, description: string, completionDate: Date): CourseGoal => {
+    // We could return courseGoal, but let's consider we need to make it step-by-step here (maybe because we need to fetch and validate)
+    let courseGoal: Partial<CourseGoal> = {}; // This says to TS somehting like: "This is not a CouseGoal type already, but truste me, it willl be!"
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = completionDate;
+
+    return courseGoal as CourseGoal; // So we need to convert it definetly to CourseGoal
+  };
+
+  // Readonly
+  const names: Readonly<string[]> = ["Renan", "Fayad"];
+  // names[0] = "AA";  // Returns error (but compiles)
+}

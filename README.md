@@ -901,6 +901,8 @@ const emailError: ErrorContainer = { id:"0001", email: "Please valid email" };
 
 - It's not a JS concept, but it's a concept that exists in other languages
 
+- Generic types gives us flexibility combined with type safety
+
 - Generic type have to be 'connected' to another type - It's good practice, as TS identifies the type of each value and gives us the types methods
 
 ```
@@ -999,4 +1001,33 @@ console.log(mergedObj);
   }
 
   // Now if we want we can create a NumberStorage as well
+```
+
+#### Generic Utility Types
+
+- We can use Partial to work with an object while it still does not have all the properties defined for that type
+
+- Readonly - Locks down arrays or objects
+
+```
+  // Partial
+  interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+  }
+
+  const createCouseGoal = (title: string, description: string, completionDate: Date): CourseGoal => {
+    // We could return courseGoal, but let's consider we need to make it step-by-step here (maybe because we need to fetch and validate)
+    let courseGoal: Partial<CourseGoal> = {}; // This says to TS somehting like: "This is not a CouseGoal type already, but truste me, it willl be!"
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = completionDate;
+
+    return courseGoal as CourseGoal; // So we need to convert it definetly to CourseGoal
+  };
+
+  // Readonly
+  const names: Readonly<string[]> = ["Renan", "Fayad"];
+  //   names.push("Rodrigues"); // error
 ```
