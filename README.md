@@ -1031,3 +1031,9 @@ console.log(mergedObj);
   const names: Readonly<string[]> = ["Renan", "Fayad"];
   //   names.push("Rodrigues"); // error
 ```
+
+#### Generic Types vs Union Types
+
+- In our DataStorage example, the problem with UnionTypes vs Generic Types is that:
+  - Union Type will mix all the types in our array;
+  - while the Generics will keep the desired consistency (sticking to onyl one type)

@@ -118,3 +118,33 @@
   const names: Readonly<string[]> = ["Renan", "Fayad"];
   // names[0] = "AA";  // Returns error (but compiles)
 }
+
+// 103. Generic Types vs Union Types
+
+{
+  class DataStorage {
+    private data: (string | number | boolean)[] = [];
+
+    addItem(item: string | number | boolean) {
+      // This approach would mix the elements in our array. while Generic Types would keep the consistency (only one type in the whole array)
+      this.data.push(item);
+    }
+
+    removeItem(item: string | number | boolean) {
+      const index = this.data.indexOf(item);
+      index > -1 && this.data.splice(index, 1);
+    }
+
+    getItems() {
+      return [...this.data];
+    }
+  }
+
+  const textStorage = new DataStorage();
+  textStorage.addItem("Renan");
+  textStorage.addItem("Fayad");
+  textStorage.removeItem("Fayad");
+  console.log(textStorage.getItems());
+
+  // Now if we want we can create a NumberStorage as well
+}
