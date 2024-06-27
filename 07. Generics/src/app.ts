@@ -64,3 +64,32 @@
 
   console.log(extractAndConvert({ name: "Renan" }, "name"));
 }
+
+//  100. Generic Classes
+
+{
+  class DataStorage<T> {
+    private data: T[] = [];
+
+    addItem(item: T) {
+      this.data.push(item);
+    }
+
+    removeItem(item: T) {
+      const index = this.data.indexOf(item);
+      index > -1 && this.data.splice(index, 1);
+    }
+
+    getItems() {
+      return [...this.data];
+    }
+  }
+
+  const textStorage = new DataStorage<string>();
+  textStorage.addItem("Renan");
+  textStorage.addItem("Fayad");
+  textStorage.removeItem("Fayad");
+  console.log(textStorage.getItems());
+
+  // Now if we want we can create a NumberStorage as well
+}
