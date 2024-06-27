@@ -1037,3 +1037,32 @@ console.log(mergedObj);
 - In our DataStorage example, the problem with UnionTypes vs Generic Types is that:
   - Union Type will mix all the types in our array;
   - while the Generics will keep the desired consistency (sticking to onyl one type)
+
+## Sectoin 08 - Decorators
+
+#### Intro
+
+- We will use it for meta-programming
+
+  - Which means a developers focused tools (instead of users focused)
+
+- In tsconfig:
+  - "target": "ES6";
+  - "experimentalDecorators": true
+
+```
+function Logger(classConstructor: Function) {
+  // Conventionally, decorators start with capital letter
+  console.log("Logging...");
+  console.log(classConstructor);
+}
+
+@Logger   // Note that the decorator runs even when the Class is not instaciated
+class Person {
+  name = "Fayad";
+
+  constructor() {
+    console.log("Creating Person..");
+  }
+}
+```
