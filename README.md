@@ -1112,3 +1112,40 @@ class Person {
     }
   }
 ```
+
+#### 109. Adding Multiple Decorators
+
+- It's possible to add more than 1 decorator, and it's important to know that, when this happens, decorators run bottom-up
+  - I numbered below he console.logs
+
+```
+ function Logger(logString: string) {
+    console.log("1. Creating Factory FN - Logger");
+    return function (_: Function) {
+      console.log("4. " + logString);
+    };
+  }
+
+  function WithTemplate(template: string, hookId: string) {
+    console.log("2. Creating Factory FN - With Template");
+    return function (constructor: any) {
+      console.log("3. Rendering Template...");
+      const hookElement = document.querySelector(`#${hookId}`);
+      const person = new constructor();
+      if (hookElement) {
+        hookElement.innerHTML = template;
+        hookElement.querySelector("h1")!.textContent = person.name;
+      }
+    };
+  }
+
+  @Logger("LOGGER")
+  @WithTemplate("<h1>My Person Object</h1>", "app")
+  class Person {
+    name = "Fayad";
+
+    constructor() {
+      // console.log("Creating Person... (class constructor)");
+    }
+  }
+```
