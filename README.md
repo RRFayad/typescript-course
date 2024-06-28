@@ -1183,3 +1183,14 @@ const Log = (target: any, propertyName: string | Symbol) => {
     }
   }
 ```
+
+#### 111. Accessor & Parameter Decorators
+
+- We can add decorators also to:
+
+  - properties
+  - accessors / mutators (getters and setters)
+  - methods
+  - parameters
+
+- Code with all console.logs to show the parameters we receive from decorators
