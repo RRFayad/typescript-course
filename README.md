@@ -1202,3 +1202,8 @@ const Log = (target: any, propertyName: string | Symbol) => {
 #### 113. Returning (and changing) a Class in a Class Decorator
 
 - It was a bit confusing, but it was about using a decorator to return an extended class from the original
+
+#### 114. Other Decorator Return Types - Example: Creating an "Autobind" Decorator
+
+- Decorators added to Accessors / Mutators or Methods can return values
+  - such as a property or method
