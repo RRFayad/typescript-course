@@ -1038,7 +1038,7 @@ console.log(mergedObj);
   - Union Type will mix all the types in our array;
   - while the Generics will keep the desired consistency (sticking to onyl one type)
 
-## Sectoin 08 - Decorators
+## Section 08 - Decorators
 
 #### Intro
 
@@ -1207,3 +1207,14 @@ const Log = (target: any, propertyName: string | Symbol) => {
 
 - Decorators added to Accessors / Mutators or Methods can return values
   - such as a property or method
+
+## Section 09 - Drag & Drop Project
+
+#### Notes During the Project
+
+- About the Project
+
+  - We will work with OO approach
+
+- Miscelaneous
+  - <template>: Use <template> to hold some content that will be hidden when the page loads. Use JavaScript to display it
