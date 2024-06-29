@@ -1194,3 +1194,11 @@ const Log = (target: any, propertyName: string | Symbol) => {
   - parameters
 
 - Code with all console.logs to show the parameters we receive from decorators
+
+#### 112. When Do Decorators Execute?
+
+- Decorators run when set (not when a instance is created)
+
+#### 113. Returning (and changing) a Class in a Class Decorator
+
+- It was a bit confusing, but it was about using a decorator to return an extended class from the original

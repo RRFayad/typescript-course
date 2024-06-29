@@ -189,3 +189,43 @@
     }
   }
 }
+
+// 113. Returning (and changing) a Class in a Class Decorator
+
+{
+  console.log("113. Returning (and changing) a Class in a Class Decorator");
+
+  function Logger(logString: string) {
+    console.log("1. Creating Factory FN - Logger");
+    return function (_: Function) {
+      console.log("4. " + logString);
+    };
+  }
+
+  function WithTemplate(template: string, hookId: string) {
+    console.log("2. Creating Factory FN - With Template");
+    return function <T extends { new (...args: any[]): { name: string } }>(originalConstructor: T) {
+      return class extends originalConstructor {
+        constructor(..._: any[]) {
+          super();
+          console.log("3. Rendering Template...");
+          const hookElement = document.querySelector(`#${hookId}`);
+          if (hookElement) {
+            hookElement.innerHTML = template;
+            hookElement.querySelector("h1")!.textContent = this.name;
+          }
+        }
+      };
+    };
+  }
+
+  @Logger("LOGGER")
+  @WithTemplate("<h1>My Person Object</h1>", "app")
+  class Person {
+    name = "Fayad";
+
+    constructor() {
+      // console.log("Creating Person... (class constructor)");
+    }
+  }
+}
