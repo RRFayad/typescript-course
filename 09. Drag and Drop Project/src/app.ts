@@ -22,7 +22,6 @@ interface projectInputValidationConfig {
 
 const validate = (toBeValidatedInput: projectInputValidationConfig): boolean => {
   let isValid = true;
-  console.log(toBeValidatedInput);
 
   if (toBeValidatedInput.required) {
     isValid = isValid && toBeValidatedInput.value.toString().trim().length !== 0;
@@ -36,8 +35,8 @@ const validate = (toBeValidatedInput: projectInputValidationConfig): boolean => 
   if (toBeValidatedInput.min != null && typeof toBeValidatedInput.value === "number") {
     isValid = isValid && toBeValidatedInput.value >= toBeValidatedInput.min;
   }
-  if (toBeValidatedInput.min != null && typeof toBeValidatedInput.value === "number") {
-    isValid = isValid && toBeValidatedInput.value <= toBeValidatedInput.min;
+  if (toBeValidatedInput.max != null && typeof toBeValidatedInput.value === "number") {
+    isValid = isValid && toBeValidatedInput.value <= toBeValidatedInput.max;
   }
   return isValid;
 };
