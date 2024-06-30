@@ -1218,3 +1218,5 @@ const Log = (target: any, propertyName: string | Symbol) => {
 
 - Miscelaneous
   - <template>: Use <template> to hold some content that will be hidden when the page loads. Use JavaScript to display it
+
+## Section 14 - React and TS
