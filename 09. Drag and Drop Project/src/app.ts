@@ -10,6 +10,38 @@ function autobind(target: any, methodName: string | Symbol, descriptor: Property
   return adjustedDescriptor;
 }
 
+// Validation Logic
+interface projectInputValidationConfig {
+  value: string | number;
+  required?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  min?: number;
+  max?: number;
+}
+
+const validate = (toBeValidatedInput: projectInputValidationConfig): boolean => {
+  let isValid = true;
+  console.log(toBeValidatedInput);
+
+  if (toBeValidatedInput.required) {
+    isValid = isValid && toBeValidatedInput.value.toString().trim().length !== 0;
+  }
+  if (toBeValidatedInput.minLength != null && typeof toBeValidatedInput.value === "string") {
+    isValid = isValid && toBeValidatedInput.value.trim().length >= toBeValidatedInput.minLength;
+  }
+  if (toBeValidatedInput.maxLength != null && typeof toBeValidatedInput.value === "string") {
+    isValid = isValid && toBeValidatedInput.value.trim().length <= toBeValidatedInput.maxLength;
+  }
+  if (toBeValidatedInput.min != null && typeof toBeValidatedInput.value === "number") {
+    isValid = isValid && toBeValidatedInput.value >= toBeValidatedInput.min;
+  }
+  if (toBeValidatedInput.min != null && typeof toBeValidatedInput.value === "number") {
+    isValid = isValid && toBeValidatedInput.value <= toBeValidatedInput.min;
+  }
+  return isValid;
+};
+
 // ProjectInput Class
 class ProjectInput {
   templateElement: HTMLTemplateElement;
@@ -40,14 +72,18 @@ class ProjectInput {
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
-    if (
-      enteredTitle.trim().length === 0 ||
-      enteredDescription.trim().length === 0 ||
-      enteredPeople.trim().length === 0
-    ) {
-      alert("Invalid input - Try again");
+    const titleToBeValidated: projectInputValidationConfig = { value: enteredTitle, required: true };
+    const descriptionToBeValidated: projectInputValidationConfig = {
+      value: enteredDescription,
+      required: true,
+      minLength: 5,
+    };
+    const peopleToBeValidated: projectInputValidationConfig = { value: +enteredPeople, required: true, min: 1, max: 5 };
+
+    if (validate(titleToBeValidated) && validate(descriptionToBeValidated) && validate(peopleToBeValidated)) {
+      return [enteredTitle, enteredDescription, +enteredPeople];
     } else {
-      return [enteredTitle, enteredDescription, Number(enteredPeople)];
+      alert("Invalid input - Try again");
     }
   }
 
@@ -59,8 +95,8 @@ class ProjectInput {
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
       console.log(title, description, people);
+      this.clearInputs();
     }
-    this.clearInputs();
   }
 
   private clearInputs() {
