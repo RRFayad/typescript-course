@@ -1302,3 +1302,11 @@ namespace App {
     - Now we have `Validation.Validatable` and `Validation.validate`
 
 - Also remember the export default
+
+#### How Does Code In Modules Execute?
+
+- When we import some code, it runs once (in the 1st import and only once)
+
+#### Next Steps
+
+- With Webpack we can run this in lder browser (this runs only in Chrome and Firefox), and also budle it to make it with less files
