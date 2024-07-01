@@ -1309,4 +1309,26 @@ namespace App {
 
 #### Next Steps
 
-- With Webpack we can run this in lder browser (this runs only in Chrome and Firefox), and also budle it to make it with less files
+- With Webpack we can run this in lder browser (this runs only in Chrome and Firefox), and also bundle it to make it with less files
+
+## Section 11 - Webpack with TS
+
+- What is Webpack?
+- Example Setup
+
+#### What is Webpack?
+
+- Problem:
+
+  - When we open the network tab (without the webpack), we can see there's a bunch of http requests;
+    - The problem with that is a waterfall loading, which may slow down the project
+    - So we need to shrink the loading time with less http requests! That's where webpack comes into play!
+
+- Webpack (webpack.js.org)
+  - It's a tool to bundle our files together
+  - Benefits:
+    - Less files (and requests)
+    - Optimized ("minified") code (as small as possible = faster code)
+    - Don't need an extra dev server (like lite-server we were using)
+
+#### Installing Webpack & Important Dependencies
