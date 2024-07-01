@@ -1222,3 +1222,48 @@ const Log = (target: any, propertyName: string | Symbol) => {
 Paused Section 09 - After 129 with a bug
 
 ## Section 10 - Modules & Namespaces
+
+- Right now we have a simple project, with the whole code in one file - So we need to organize it
+
+- There are two options (actually three) to organize the code in multiple files
+  - Write multiple files (which isn't actually the best approach)
+  - Namespaces & File Bundling
+  - ES6 Imports / Exports
+
+#### 143. Working with Namespaces
+
+- Steps:
+
+  - In tsconfig.json:
+
+    ```javascript
+    "module": "amd",
+    "outFile": "./dist/bundle.js"
+    ```
+
+  - Create namespaces and exports:
+
+    ```javascript
+    namespace App {
+      export interface Draggable {
+        dragStartHandler(event: DragEvent): void;
+        dragEndHandler(event: DragEvent): void;
+      }
+
+      export interface DragTarget {
+        dragOverHandler(event: DragEvent): void;
+        dropHandler(event: DragEvent): void;
+        dragLeaveHandler(event: DragEvent): void;
+      }
+    }
+    ```
+
+- So, in the files of the I'll use the namespaces variable, I will import and create the same namespace to conenct:
+
+```javascript
+/// <reference path="drag-drop-interfaces.ts" />
+
+namespace App {
+  // My whole code wrapped here
+}
+```
