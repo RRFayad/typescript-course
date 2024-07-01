@@ -1,16 +1,43 @@
-// autobind decorator
-function autobind(target: any, methodName: string | Symbol, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
-  const adjustedDescriptor: PropertyDescriptor = {
-    configurable: true,
-    get() {
-      return originalMethod.bind(this);
-    },
-  };
-  return adjustedDescriptor;
+// Project State Management
+
+class ProjectState {
+  private listeners: any[] = [];
+  private projects: any[] = [];
+  private static instance: ProjectState;
+
+  private constructor() {}
+
+  // This is the way we guarantee there will only be one instance of the State
+  static getInstance() {
+    if (this.instance) {
+      return this.instance;
+    }
+    this.instance = new ProjectState();
+    return this.instance;
+  }
+
+  addListener(listenerFn: Function) {
+    this.listeners.push(listenerFn);
+  }
+
+  addProject(title: string, description: string, people: number) {
+    const newProject = {
+      id: Date.now(),
+      title,
+      description,
+      people,
+    };
+    this.projects.push(newProject);
+
+    for (const listenerFn of this.listeners) {
+      listenerFn(this.projects.slice());
+    }
+  }
 }
 
-// Validation Logic
+const projectState = ProjectState.getInstance();
+
+// Inputs Validation Logic
 interface projectInputValidationConfig {
   value: string | number;
   required?: boolean;
@@ -46,19 +73,36 @@ class ProjectList {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
   element: HTMLElement;
+  assignedProjects: any[];
 
   constructor(private type: "active" | "finished") {
     // remember this is a shorthand to declare (and define the type and value) of a property
     this.templateElement = document.querySelector("#project-list")! as HTMLTemplateElement;
     this.hostElement = document.querySelector("#app")! as HTMLDivElement;
+    this.assignedProjects = [];
 
     const importedNode = document.importNode(this.templateElement.content, true);
     this.element = importedNode.firstElementChild as HTMLElement;
     this.element.id = `${type}-projects`;
 
+    projectState.addListener((projects: any[]) => {
+      this.assignedProjects = projects;
+    });
+
     this.attach();
     this.renderContent();
+    this.renderProjects();
   }
+
+  private renderProjects() {
+    const listEl = document.querySelector(`${this.type}-projects-list`)! as HTMLUListElement;
+    for (const item of this.assignedProjects) {
+      const listItem = document.createElement("li");
+      listItem.textContent = item.title;
+      listEl.appendChild(listItem);
+    }
+  }
+
   private attach() {
     this.hostElement.insertAdjacentElement("beforeend", this.element);
   }
@@ -68,6 +112,18 @@ class ProjectList {
     this.element.querySelector("ul")!.id = listId;
     this.element.querySelector("h2")!.textContent = this.type.toUpperCase() + "PROJECTS";
   }
+}
+
+// autobind decorator
+function autobind(target: any, methodName: string | Symbol, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value;
+  const adjustedDescriptor: PropertyDescriptor = {
+    configurable: true,
+    get() {
+      return originalMethod.bind(this);
+    },
+  };
+  return adjustedDescriptor;
 }
 
 // ProjectInput Class
@@ -91,8 +147,8 @@ class ProjectInput {
     this.descriptionInputElement = this.element.querySelector("#description")! as HTMLInputElement;
     this.peopleInputElement = this.element.querySelector("#people")! as HTMLInputElement;
 
-    this.attach();
     this.configure();
+    this.attach();
   }
 
   private gatherUserInput(): [string, string, number] | void {
@@ -122,7 +178,7 @@ class ProjectInput {
     const userInput = this.gatherUserInput();
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
-      console.log(title, description, people);
+      projectState.addProject(title, description, people);
       this.clearInputs();
     }
   }
