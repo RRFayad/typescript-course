@@ -1292,3 +1292,13 @@ namespace App {
   - Now, there are compiling errors when there's no import
   - That's why this is the recommended approach
   - Also, with webpack (we will see it later) we don't have to use the '.js' extension
+
+#### Understanding various Import & Export Syntaxes
+
+- Remember we can group imports with an alias name, such as:
+
+  - Instead of `import { Validatable, validate } from "../util/validation.js";`
+  - We can have ` import * as Validation from "../util/validation.js";`
+    - Now we have `Validation.Validatable` and `Validation.validate`
+
+- Also remember the export default
