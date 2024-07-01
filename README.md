@@ -1270,4 +1270,25 @@ namespace App {
 
 - Important to know that my imports don't really need to be in the file I'll use the variable, but if I import everything on my app.js (which centralizes everything) it will work (obviously an unclean solution)
 
-#### Using ESModules (Modern Browsers only - Chrome and Firefox)
+#### Problem with Namespaces
+
+- As we saw when refactoring, when there were dependencies missing, TS was still compiling without errors (and wit an error on the feature)
+
+- So it would be nice a way to manage these imports and exports easily, and thjere's when ES6 Modules comes
+
+#### Recommended Approach - Using ESModules (Modern Browsers only - Chrome and Firefox)
+
+- Using import and export
+- **Important:** Always use .js extension when importing - e.g.: `import { ProjectList } from "./components/project-list.js";`
+- tsconfig:
+
+  ```javascript
+  "target": "es6" //or higher
+  //"outFile": "./dist/bundle.js"   // should be commented because i's not supported wth es modules
+  "module": "ES2015"
+  ```
+
+- **Important and Conclusion**
+  - Now, there are compiling errors when there's no import
+  - That's why this is the recommended approach
+  - Also, with webpack (we will see it later) we don't have to use the '.js' extension
