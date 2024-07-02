@@ -1429,3 +1429,13 @@ namespace App {
   ```
 
   - package.json: `build": "webpack --config webpack.config.prod.js"`
+
+## Section 12 - Third Party Libraries
+
+- Regualr Libraries & TS specific Libraries
+
+#### Working with a JS Library - Lodash
+
+- Look for types + library - tranlstion types packages
+
+- npm install --save-dev @types/lodash
