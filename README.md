@@ -1332,3 +1332,45 @@ namespace App {
     - Don't need an extra dev server (like lite-server we were using)
 
 #### Installing Webpack & Important Dependencies
+
+- npm install --save-dev webpack webpack-cli webpack-dev-server typescript ts-loader
+  - webpack - Bundle and minify our code
+  - webpack-cli - Run webpack commanda
+  - webpack-dev-server - Built in Dev server
+  - typescript
+  - ts-loader - Tells Webpack how to convert TS to JS
+
+#### Configuration
+
+- tsconfig:
+
+```json
+"target":"es6",
+"module":"es6" // or es2015
+// "rootDir":"src" // We dont need it anymore
+"outDir": "./dist"      // It must match the webpack config
+"sourceMap": true
+```
+
+- webpack.config.js
+
+  - Now or imports don't need .js anymore;
+
+  ```javascript
+  const path = require("path");
+
+  module.exports = {
+    entry: "./src/app.ts",
+    output: {
+      filename: "bundle.js", // It's possibile this to be dynamic, check docs
+      path: path.resolve(__dirname, "dist"),
+    },
+    devtool: "inline-source-map", //
+    module: {
+      rules: [{ test: /\.ts$/, use: "ts-loader", exclude: /node_modules/ }],
+    },
+    resolve: {
+      extensions: [".ts", ".js"],
+    },
+  };
+  ```
