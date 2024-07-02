@@ -1439,3 +1439,8 @@ namespace App {
 - Look for types + library - tranlstion types packages
 
 - npm install --save-dev @types/lodash
+
+#### Using "declare" as a "Last Resort"
+
+- e.g.: GLOBAL variable in the document: `declare const GLOBAL: any;`
+  - This will force TS to accept it
