@@ -1456,3 +1456,7 @@ namespace App {
 - There are some JS librries that we need type 'translations' (such as types lodash)
 - There are libraries, like class-transformer that work in JS and TS
 - Also packages uch as class-validator, which is completely on TS
+
+## Section 14 - React and TS
+
+- Max says it's not the default, TS is not used in most React Projects
