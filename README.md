@@ -1461,6 +1461,25 @@ namespace App {
 
 - Max says it's not the default, TS is not used in most React Projects
 
-#### 180. Working with Props and Types for Props
+#### Working with Props and Types for Props
 
--
+```tsx
+interface TodoListProps {
+  items: {
+    id: string;
+    text: string;
+  }[];
+}
+
+const TodoList: React.FC<TodoListProps> = (props) => {
+  return (
+    <ul>
+      {props.items.map((todo) => (
+        <li key={todo.id}>{todo.text}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;
+```
