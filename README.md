@@ -1460,3 +1460,7 @@ namespace App {
 ## Section 14 - React and TS
 
 - Max says it's not the default, TS is not used in most React Projects
+
+#### 180. Working with Props and Types for Props
+
+-

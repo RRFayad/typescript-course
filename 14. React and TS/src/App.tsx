@@ -1,3 +1,13 @@
-export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-}
+import TodoList from "./components/ToDoList";
+
+const App = () => {
+  let todos = [{ id: "t1", text: "Finish the course" }];
+  return (
+    <div>
+      {/* A component that adds todos */}
+      <TodoList items={todos} />
+    </div>
+  );
+};
+
+export default App;
