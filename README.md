@@ -1444,3 +1444,15 @@ namespace App {
 
 - e.g.: GLOBAL variable in the document: `declare const GLOBAL: any;`
   - This will force TS to accept it
+
+#### No Types Needed: class-transformer & class-validator
+
+- Some 3rd party libraries embrace TS and improves dev experience
+  - class-transformer - Creates instances of classes from objects
+  - class-validator - Validator Decorators
+
+#### Wrap Up:
+
+- There are some JS librries that we need type 'translations' (such as types lodash)
+- There are libraries, like class-transformer that work in JS and TS
+- Also packages uch as class-validator, which is completely on TS
