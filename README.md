@@ -1463,8 +1463,11 @@ namespace App {
 
 #### Working with Props and Types for Props
 
-- Obs.:
-  - We can destrucute, but with multiple vlaues it looks likle more code
+- My best approach:
+  - create a `interface ComponentNameProps {}`
+  - Set the type as generics in the React FC
+  - Destructure it in the props
+  - Optional: add an alias in the destructured props
 
 ```tsx
 interface TodoListProps {
@@ -1474,10 +1477,10 @@ interface TodoListProps {
   }[];
 }
 
-const TodoList: React.FC<TodoListProps> = (props) => {
+const TodoList: React.FC<TodoListProps> = ({ items: tasks }) => {
   return (
     <ul>
-      {props.items.map((todo) => (
+      {tasks.map((todo) => (
         <li key={todo.id}>{todo.text}</li>
       ))}
     </ul>

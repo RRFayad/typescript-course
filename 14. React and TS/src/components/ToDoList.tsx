@@ -26,10 +26,10 @@ interface TodoListProps {
   }[];
 }
 
-const TodoList: React.FC<TodoListProps> = (props) => {
+const TodoList: React.FC<TodoListProps> = ({ items: tasks }) => {
   return (
     <ul>
-      {props.items.map((todo) => (
+      {tasks.map((todo) => (
         <li key={todo.id}>{todo.text}</li>
       ))}
     </ul>
