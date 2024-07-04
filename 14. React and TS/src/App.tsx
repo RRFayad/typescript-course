@@ -1,13 +1,13 @@
 import { useState } from "react";
+import Todo from "./models/Todo";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/ToDoList";
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  // let todos = [{ id: "t1", text: "Finish the course" }];
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const todoAddHandler = (text: string) => {
-    console.log(text);
+    setTodos((prevState) => [...prevState, { id: Date.now().toString(), text: text }]);
   };
 
   return (

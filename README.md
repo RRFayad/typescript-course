@@ -1520,3 +1520,11 @@ const NewTodo: React.FC = () => {
 
 export default NewTodo;
 ```
+
+#### States and Types:
+
+- Create the type on the run
+  `const [todos, setTodos] = useState<{ id: string; text: string }[]>([]);`
+
+- Or, here, we create a Model file and imported it:
+  ` const [todos, setTodos] = useState<Todo[]>([]);`
