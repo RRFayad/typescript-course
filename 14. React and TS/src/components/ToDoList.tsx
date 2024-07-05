@@ -27,14 +27,20 @@ interface TodoListProps {
   onDeleteItem: (id: string) => void;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ items: tasks, onDeleteItem: deleteItemHandler }) => {
+const TodoList: React.FC<TodoListProps> = ({
+  items: tasks,
+  onDeleteItem: deleteItemHandler,
+}) => {
   return (
-    <ul>
+    <ul className="ml-4 mt-8 flex w-full max-w-[600px] flex-col justify-between">
       {tasks.map((todo) => (
-        <li key={todo.id} className="mt-2 w-40 flex justify-around">
-          <span> {todo.text} </span>
+        <li
+          key={todo.id}
+          className="mt-4 flex h-[72px] w-full items-center justify-between p-4 align-middle font-semibold shadow-md shadow-slate-300 hover:bg-gray-50"
+        >
+          <span className="flex h-full items-center"> {todo.text} </span>
           <button
-            className="bg-red-500 hover:bg-blue-700 text-white font-bold px-2 rounded"
+            className="h-8 w-24 bg-purple-900 px-2 text-sm text-white hover:bg-purple-950"
             onClick={() => deleteItemHandler(todo.id)}
           >
             Delete

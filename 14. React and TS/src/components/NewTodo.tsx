@@ -12,15 +12,26 @@ const NewTodo: React.FC<NewTodoProps> = ({ onAddTodo: addTodoHandler }) => {
     const enteredText = textInputRef.current!.value; //remember TS does not know it will not be null when ran, that's why the !
 
     addTodoHandler(enteredText);
+    textInputRef.current!.value = "";
   };
 
   return (
-    <form onSubmit={todoSubmitHandler} className="flex w-96 justify-between">
+    <form
+      onSubmit={todoSubmitHandler}
+      className="ml-4 mt-4 flex w-full max-w-[600px] flex-col justify-between"
+    >
       <div>
-        <label htmlFor="todo-text">Todo:</label>
-        <input className="w-52 bg-gray-100 border rounded-lg ml-4" type="text" id="todo-text" ref={textInputRef} />
+        <label htmlFor="todo-text" className="flex flex-col font-bold">
+          Todo Text:
+        </label>
+        <input
+          className="w-full border border-purple-900 outline-purple-900"
+          type="text"
+          id="todo-text"
+          ref={textInputRef}
+        />
       </div>
-      <button className="bg-blue-400 w-20 h-6 rounded-lg" type="submit">
+      <button className="mt-4 h-8 w-28 bg-purple-900 text-white" type="submit">
         Add Todo
       </button>
     </form>
