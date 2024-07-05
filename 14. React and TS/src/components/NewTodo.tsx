@@ -15,10 +15,10 @@ const NewTodo: React.FC<NewTodoProps> = ({ onAddTodo: addTodoHandler }) => {
   };
 
   return (
-    <form onSubmit={todoSubmitHandler}>
+    <form onSubmit={todoSubmitHandler} className="flex w-96 justify-between">
       <div>
-        <label htmlFor="todo-text">Todo: </label>
-        <input className="w-60 bg-gray-100 border rounded-lg" type="text" id="todo-text" ref={textInputRef} />
+        <label htmlFor="todo-text">Todo:</label>
+        <input className="w-52 bg-gray-100 border rounded-lg ml-4" type="text" id="todo-text" ref={textInputRef} />
       </div>
       <button className="bg-blue-400 w-20 h-6 rounded-lg" type="submit">
         Add Todo
