@@ -1528,3 +1528,22 @@ export default NewTodo;
 
 - Or, here, we create a Model file and imported it:
   ` const [todos, setTodos] = useState<Todo[]>([]);`
+
+## Section 15 - Express and TS
+
+#### Setting up a project
+
+- npm init
+- tsc--init
+- tsconfig:
+  ```json
+  "target": "es2018",
+   "moduleResolution": "node10",   // Max says 'node', but I'll keep the default node10
+   "rootDir": "./src",
+   "outDir": "./dist",
+  ```
+  - create /src
+  - install dependencies
+  - npm install --save-dev @types/express
+  - npm install --save-dev @types/node
+  - package json ` "start": "nodemon dist/app.js"`
