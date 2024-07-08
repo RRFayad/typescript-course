@@ -1536,14 +1536,30 @@ export default NewTodo;
 - npm init
 - tsc--init
 - tsconfig:
+
   ```json
   "target": "es2018",
    "moduleResolution": "node10",   // Max says 'node', but I'll keep the default node10
    "rootDir": "./src",
    "outDir": "./dist",
   ```
+
   - create /src
   - install dependencies
   - npm install --save-dev @types/express
   - npm install --save-dev @types/node
   - package json ` "start": "nodemon dist/app.js"`
+
+  - Max showed we can use import and export, or keep with the conventional require('')
+
+  #### Adding Middleware & Types
+
+  `app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {});`
+
+  - Or to be cleaner:
+
+    ```
+    import express, { Request, Response, NextFunction } from "express";
+
+    app.use((err: Error, req: Request, res: Response, next: NextFunction) => {});
+    ```
