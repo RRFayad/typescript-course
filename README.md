@@ -1566,8 +1566,19 @@ export default NewTodo;
 
 #### Adding a Controller
 
-```
+```javascript
 import { RequestHandler } from "express";
 
 export const createTodo: RequestHandler = (req, res, next) => {};
+```
+
+- When getting data from params:
+
+```javascript
+export const deleteTodo: RequestHandler<{ id: string }> = (req, res, next) => {
+  const id = req.params.id;
+
+  //... Deleting Logic ...
+
+}
 ```
