@@ -1544,22 +1544,30 @@ export default NewTodo;
    "outDir": "./dist",
   ```
 
-  - create /src
-  - install dependencies
-  - npm install --save-dev @types/express
-  - npm install --save-dev @types/node
-  - package json ` "start": "nodemon dist/app.js"`
+- create /src
+- install dependencies
+- npm install --save-dev @types/express
+- npm install --save-dev @types/node
+- package json ` "start": "nodemon dist/app.js"`
 
-  - Max showed we can use import and export, or keep with the conventional require('')
+- Max showed we can use import and export, or keep with the conventional require('')
 
-  #### Adding Middleware & Types
+#### Adding Middleware & Types
 
-  `app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {});`
+`app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {});`
 
-  - Or to be cleaner:
+- Or to be cleaner:
 
-    ```
-    import express, { Request, Response, NextFunction } from "express";
+  ```
+  import express, { Request, Response, NextFunction } from "express";
 
-    app.use((err: Error, req: Request, res: Response, next: NextFunction) => {});
-    ```
+  app.use((err: Error, req: Request, res: Response, next: NextFunction) => {});
+  ```
+
+#### Adding a Controller
+
+```
+import { RequestHandler } from "express";
+
+export const createTodo: RequestHandler = (req, res, next) => {};
+```
